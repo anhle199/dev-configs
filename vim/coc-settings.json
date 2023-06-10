@@ -1,0 +1,27 @@
+{
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/black",
+    "python.formatting.blackArgs": ["--fast"],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportImportCycles": "error",
+        "reportUnusedImport": "warning",
+        "reportUnusedClass": "warning",
+        "reportUnusedFunction": "warning",
+        "reportUnusedVariable": "warning",
+        "reportDuplicateImport": "warning",
+        "reportUnnecessaryCast": "warning",
+        "reportUnnecessaryComparison": "warning",
+        "reportUnnecessaryContains": "warning"
+    },
+    "typescript.format.enabled": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "diagnostic.errorSign": "😡",
+    "diagnostic.warningSign": "⚠️",
+    "diagnostic.infoSign": "🤔",
+    "diagnostic.hintSign": "🔅",
+    "diagnostic.refreshOnInsertMode": true,
+    "dialog.rounded": true,
+    "suggest.noselect": false
+}

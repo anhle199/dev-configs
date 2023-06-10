@@ -1,0 +1,153 @@
+{
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "breadcrumbs.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.accessibilitySupport": "off",
+  "editor.suggestSelection": "first",
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 12,
+  "editor.tabSize": 4,
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always",
+  "editor.minimap.autohide": true,
+  "editor.autoIndent": "advanced",
+  "editor.trimAutoWhitespace": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.foldingImportsByDefault": true,
+  "editor.detectIndentation": true,
+  "editor.wordWrap": "on",
+  "editor.smoothScrolling": true,
+  "editor.autoSurround": "languageDefined",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "workbench.startupEditor": "newUntitledFile",
+  "[markdown][yaml][xml][html][django-html][json][jsonc][python][dockerfile][dockercompose]": {
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false
+  },
+  "[typescript][typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.suggest.completeJSDocs": true,
+    "typescript.suggest.jsdoc.generateReturns": true,
+    "typescript.autoClosingTags": true,
+    "editor.formatOnSave": false
+  },
+  "[javascript][javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.inlayHints.enabled": "on",
+    "javascript.autoClosingTags": true,
+    "javascript.suggest.completeJSDocs": true
+  },
+  "[html][json][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.formatting.provider": "none",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*.map": {
+      "when": "$(basename).map"
+    },
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    ".vscode": true,
+    "**/*.pyc": true
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.semicolons": "insert",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.surveys.enabled": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+  "typescript.format.semicolons": "ignore",
+  "javascript.preferences.quoteStyle": "double",
+  "extensions.ignoreRecommendations": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.visualstar": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "after": ["g", "h"]
+    },
+    {
+      "before": ["<space>", "m"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<space>", "c", "o"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    {
+      "before": ["<space>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Bs>"],
+      "after": ["<Del>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    }
+  ],
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.colorTheme": "Default Dark+",
+  "git.openRepositoryInParentFolders": "never",
+  "window.zoomLevel": -1,
+  "workbench.editor.enablePreview": false
+}
