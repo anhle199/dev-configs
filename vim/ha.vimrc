@@ -34,7 +34,7 @@ set cursorline nocursorcolumn
 set wrap linebreak  " Enable line wrapping. Avoid wrapping a line in the middle of a word.
 set splitright splitbelow
 " set laststatus=3
-set showmode
+set noshowmode
 set showcmd
 " set cmdheight=1
 set pumheight=10  " Pop up menu height.
@@ -144,13 +144,14 @@ augroup END
 " --------------------------------------- PLUGINS -------------------------------------------------
 call plug#begin('~/.local/share/vim/plugged')
   Plug 'tomasiser/vim-code-dark'
+  "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   "Plug 'sainnhe/gruvbox-material'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
   "Plug 'ryanoasis/vim-devicons'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'editorconfig/editorconfig-vim'
+  "Plug 'editorconfig/editorconfig-vim'
   "Plug 'tpope/vim-fugitive'
   "Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
@@ -159,22 +160,39 @@ call plug#begin('~/.local/share/vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'prettier/vim-prettier'
   Plug 'pangloss/vim-javascript'
-  "Plug 'vieira/vim-javascript'
-  "Plug 'anhle199/vim-javascript'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'leafgarland/typescript-vim'
   Plug 'alvan/vim-closetag'
   Plug 'jiangmiao/auto-pairs'
   Plug 'Yggdroot/indentLine'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+  Plug 'sainnhe/sonokai'
 call plug#end()
 
 "------------------------------
 "        VIM-CODE-DARK        "
 "------------------------------
-set t_ut=
-let g:codedark_term256=1
-colorscheme codedark
+"set t_Co=256
+"set t_ut=
+"let &t_ZH="\e[3m"
+"let &t_ZR="\e[23m"
+"let g:codedark_conservative=0
+"let g:codedark_modern=1
+"let g:codedark_italics=0
+"let g:codedark_transparent=1
+"let g:codedark_term256=1
+"colorscheme codedark
+"------------------------------
+
+"------------------------------
+"           MATERIAL          "
+"------------------------------
+"let g:material_theme_style = 'darker-community'
+"colorscheme material
+
+"" Fix italics in Vim
+"let &t_ZH="\e[3m"
+"let &t_ZR="\e[23m"
 "------------------------------
 
 "------------------------------
@@ -193,6 +211,17 @@ colorscheme codedark
 "let g:gruvbox_material_transparent_background = 0
 "let g:gruvbox_material_ui_contrast = 'high'
 "colorscheme gruvbox-material
+"------------------------------
+
+"------------------------------
+"           SONOKAI           "
+"------------------------------
+let g:sonokai_style = 'atlantis'
+let g:sonokai_better_performance = 1
+let g:sonokai_disable_italic_comment = 1
+let g:sonokai_enable_italic = 0
+let g:sonokai_transparent_background = 1
+colorscheme sonokai
 "------------------------------
 
 "------------------------------
@@ -223,6 +252,7 @@ xmap <silent> gcc <Plug>NERDCommenterToggle
 "         VIM-AIRLINE         "
 "------------------------------
 let g:airline_theme = 'codedark'
+"let g:airline_theme = 'material'
 "let g:airline_theme = 'gruvbox_material'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
@@ -231,23 +261,23 @@ let g:airline_powerline_fonts = 1
 "------------------------------
 "         EDITORCONFIG        "
 "------------------------------
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-autocmd FileType gitcommit let b:EditorConfig_disable = 1
+"let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+"autocmd FileType gitcommit let b:EditorConfig_disable = 1
 
-let g:charset = 'utf-8'
-let g:indent_style = 'space'
-let g:tab_width = 2
-let g:indent_size = 2
-let g:insert_final_newline = 1
-let g:trim_trailing_whitespace = 1
-let g:max_line_length = 120
-let g:quote_type = 'single'
-let g:EditorConfig_max_line_indicator = 'none'
+"let g:charset = 'utf-8'
+"let g:indent_style = 'space'
+"let g:tab_width = 2
+"let g:indent_size = 2
+"let g:insert_final_newline = 1
+"let g:trim_trailing_whitespace = 1
+"let g:max_line_length = 120
+"let g:quote_type = 'single'
+"let g:EditorConfig_max_line_indicator = 'none'
 
-autocmd FileType markdown let g:max_line_length = 'off'
-autocmd FileType markdown let g:trim_trailing_whitespace = 0
-autocmd FileType python let g:tab_width = 4
-autocmd FileType python let g:indent_size = 4
+"autocmd FileType markdown let g:max_line_length = 'off'
+"autocmd FileType markdown let g:trim_trailing_whitespace = 0
+"autocmd FileType python let g:tab_width = 4
+"autocmd FileType python let g:indent_size = 4
 "------------------------------
 
 "------------------------------
@@ -272,7 +302,7 @@ nnoremap <Space>fb :BLines<CR>
 "------------------------------
 "             COC             "
 "------------------------------
-let g:coc_global_extensions = ['coc-tsserver', 'coc-pyright', 'coc-json']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-pyright', 'coc-json', 'coc-java']
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -315,6 +345,7 @@ nmap <silent> <Space>rn <Plug>(coc-rename)
 nnoremap <Space>co :call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>
 nmap <Space>n <Plug>(coc-format)
 xmap <Space>n <Plug>(coc-format-selected)
+nnoremap <silent> <Space>cl :CocCommand java.clean.workspace<CR>
 
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -391,4 +422,6 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>'
 let g:VM_maps['Find Subword Under'] = '<C-d>'
 "------------------------------
+
+let java_highlight_functions = 1
 " -------------------------------------------------------------------------------------------------
