@@ -4,7 +4,9 @@
 - [lazygit](https://github.com/jesseduffield/lazygit)
 
 # Neovim profile collections
-- [my first setup](https://github.com/anhle199/nvim-backup)
+- [My configuration]
+  - [The first one](https://github.com/anhle199/nvim-backup)
+  - [The second one (highly recommend)](https://github.com/anhle199/ha-vim)
 - [NvChad](https://github.com/anhle199/NvChad)
 - [LazyVim](https://github.com/anhle199/LazyVim)
 - [LazyVim-Starter](https://github.com/anhle199/LazyVim-Starter)
