@@ -17,7 +17,7 @@ endif
 "------------------------------
 set encoding=UTF-8
 set fileencoding=UTF-8
-set mouse=a
+"set mouse=a
 " set backspace=indent,eol,start  " Allow backspacing over indention, line breaks and insertion start.
 set confirm  " Display a confirmation dialog when closing an unsaved file.
 set nocompatible  " Disable compatibility with vi which can cause unexpected issues.
@@ -48,7 +48,7 @@ let g:vim_json_conceal=0
 "------------------------------
 set shiftwidth=2 tabstop=2
 set expandtab autoindent smarttab
-"set listchars=tab:\|\ 
+"set listchars=tab:\|\
 "set list
 
 "------------------------------
@@ -134,9 +134,9 @@ autocmd Filetype txt setlocal shiftwidth=4 tabstop=4
 
 " Display cursorline ONLY in active window.
 augroup cursor_off
-    autocmd!
-    autocmd WinLeave * set nocursorline nocursorcolumn
-    autocmd WinEnter * set cursorline nocursorcolumn
+  autocmd!
+  autocmd WinLeave * set nocursorline nocursorcolumn
+  autocmd WinEnter * set cursorline nocursorcolumn
 augroup END
 " -------------------------------------------------------------------------------------------------
 
@@ -146,9 +146,10 @@ call plug#begin('~/.local/share/vim/plugged')
   Plug 'tomasiser/vim-code-dark'
   "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   "Plug 'sainnhe/gruvbox-material'
+  "Plug 'sainnhe/sonokai'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
-  "Plug 'ryanoasis/vim-devicons'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   "Plug 'editorconfig/editorconfig-vim'
@@ -166,22 +167,21 @@ call plug#begin('~/.local/share/vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'Yggdroot/indentLine'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'sainnhe/sonokai'
 call plug#end()
 
 "------------------------------
 "        VIM-CODE-DARK        "
 "------------------------------
-"set t_Co=256
-"set t_ut=
-"let &t_ZH="\e[3m"
-"let &t_ZR="\e[23m"
-"let g:codedark_conservative=0
-"let g:codedark_modern=1
-"let g:codedark_italics=0
-"let g:codedark_transparent=1
-"let g:codedark_term256=1
-"colorscheme codedark
+set t_Co=256
+set t_ut=
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+let g:codedark_conservative=0
+let g:codedark_modern=1
+let g:codedark_italics=0
+let g:codedark_transparent=1
+let g:codedark_term256=1
+colorscheme codedark
 "------------------------------
 
 "------------------------------
@@ -198,7 +198,7 @@ call plug#end()
 "------------------------------
 "       GRUVBOX-MATERIAL      "
 "------------------------------
-" FIXED: The comment color looks weird. 
+" FIXED: The comment color looks weird.
 " https://github.com/sainnhe/gruvbox-material/issues/5#issuecomment-729586348
 "let &t_ZH='\e[3m'
 "let &t_ZR='\e[23m'
@@ -216,18 +216,18 @@ call plug#end()
 "------------------------------
 "           SONOKAI           "
 "------------------------------
-let g:sonokai_style = 'atlantis'
-let g:sonokai_better_performance = 1
-let g:sonokai_disable_italic_comment = 1
-let g:sonokai_enable_italic = 0
-let g:sonokai_transparent_background = 1
-colorscheme sonokai
+"let g:sonokai_style = 'atlantis'
+"let g:sonokai_better_performance = 1
+"let g:sonokai_disable_italic_comment = 1
+"let g:sonokai_enable_italic = 0
+"let g:sonokai_transparent_background = 1
+"colorscheme sonokai
 "------------------------------
 
 "------------------------------
 "           NERDTREE          "
 "------------------------------
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 32
 let g:NERDTreeMinimalMenu = 1  " FIXED: blank space after closing menu
 nnoremap <Space>e :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 "------------------------------
@@ -243,9 +243,9 @@ xmap <silent> gcc <Plug>NERDCommenterToggle
 "------------------------------
 "         VIM-DEVICONS        "
 "------------------------------
-"let g:WebDevIconsOS = 'Darwin'
-"let g:webdevicons_enable_airline_tabline = 1
-"let g:webdevicons_enable_airline_statusline = 1
+let g:WebDevIconsOS = 'Darwin'
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 "------------------------------
 
 "------------------------------
@@ -294,6 +294,7 @@ let g:airline_powerline_fonts = 1
 "------------------------------
 "             FZF             "
 "------------------------------
+let g:ag_prg="ag --column --nogroup --noheading --skip-vcs-ignore --path-to-ignore ~/.ignore"
 nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fb :BLines<CR>
 "nnoremap <Space>fa :Ag<CR>
@@ -384,7 +385,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 "------------------------------
- 
+
 "------------------------------
 "     VIM-JSX-TYPESCRIPT      "
 "------------------------------
